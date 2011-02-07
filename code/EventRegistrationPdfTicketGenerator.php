@@ -1,13 +1,14 @@
 <?php
 /**
- * A simple ticket renderer which generates plain a plain PDF file containing
- * the registration tickets.
+ * A simple ticket renderer which generates a plain PDF file containing the
+ * registration tickets.
  *
  * @package silverstripe-eventmanagement-pdftickets
  */
 class EventRegistrationPdfTicketGenerator implements EventRegistrationTicketGenerator {
 
-	public static $template = 'EventPdfTicket';
+	public static $template  = 'EventPdfTicket';
+	public static $cache_dir = 'event-pdf-tickets';
 
 	public function getGeneratorTitle() {
 		return 'PDF Ticket Generator';
@@ -22,14 +23,27 @@ class EventRegistrationPdfTicketGenerator implements EventRegistrationTicketGene
 	}
 
 	public function generateTicketFileFor(EventRegistration $registration) {
-		Requirements::clear();
+		$cacheDir  = TEMP_FOLDER . '/' . self::$cache_dir;
+		$cacheName = $this->getTicketFilenameFor($registration);
+		$cachePath = "$cacheDir/$cacheName";
 
-		$viewer = new SSViewer(self::$template);
-		$input  = $viewer->process($registration);
-		$path   = singleton('PDFRenditionService')->render($input);
+		if (!is_dir($cacheDir)) {
+			@mkdir($cacheDir);
+		}
 
-		Requirements::restore();
-		return $path;
+		if (!file_exists($cachePath)) {
+			Requirements::clear();
+
+			$viewer = new SSViewer(self::$template);
+			$input  = $viewer->process($registration);
+
+			$resultPath = singleton('PDFRenditionService')->render($input);
+			rename($resultPath, $cachePath);
+
+			Requirements::restore();
+		}
+
+		return $cachePath;
 	}
 
 }
