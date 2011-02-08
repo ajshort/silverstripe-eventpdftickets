@@ -1,4 +1,4 @@
-# SilverStripe Event Management PDF Tickets Module
+# SilverStripe Event PDF Tickets Module
 
 Copyright &copy; 2011, SilverStripe Australia PTY LTD - www.silverstripe.com.au
 All rights reserved.

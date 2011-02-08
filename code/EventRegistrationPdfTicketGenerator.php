@@ -3,7 +3,7 @@
  * A simple ticket renderer which generates a plain PDF file containing the
  * registration tickets.
  *
- * @package silverstripe-eventmanagement-pdftickets
+ * @package silverstripe-eventpdftickets
  */
 class EventRegistrationPdfTicketGenerator implements EventRegistrationTicketGenerator {
 

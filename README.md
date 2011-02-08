@@ -1,4 +1,4 @@
-# SilverStripe Event Management PDF Tickets Module
+# SilverStripe Event PDF Tickets Module
 
 This is a simple reference module which generates basic PDF tickets for the event
 management module.
@@ -17,5 +17,5 @@ management module.
 *  Rebuild your database by visiting http://example.com/dev/build.
 
 ## Project Links
-*  [GitHub Project Page](https://github.com/ajshort/silverstripe-eventmanagement-pdftickets)
-*  [Issue Tracker](https://github.com/ajshort/silverstripe-eventmanagement-pdftickets/issues)
+*  [GitHub Project Page](https://github.com/ajshort/silverstripe-eventpdftickets)
+*  [Issue Tracker](https://github.com/ajshort/silverstripe-eventpdftickets/issues)
