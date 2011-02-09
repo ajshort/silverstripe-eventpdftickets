@@ -1,7 +1,7 @@
 <html>
 	<head>
 		<% base_tag %>
-		<% require css(eventmanagement-pdftickets/css/EventPdfTicket.css) %>
+		<% require css(eventpdftickets/css/EventPdfTicket.css) %>
 	</head>
 	<body>
 		<% control Tickets %>
